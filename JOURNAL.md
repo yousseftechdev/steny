@@ -41,7 +41,7 @@ I think I have enough information to start designing.
 First, I need some measurements, like dimensions for each key/touch-pad.
 
 I felt like the size of my laptop's key's was almost perfect, so I measured one of the key's to use as referece for the pad, ignore how dirty my laptop looks 😓.
-![key-measurement](imgs/keyMeasurement.png)
+![key-measurement](imgs/keymeasurement.png)
 I want it to be a little longer than so I'm probably gonna make the pads 14.5x16.5mm.
 
 I wanted the spacing to be accurate to my laptop's keyboard but 4.7mm could protentially cause the touch pads to capacitively couple together, so I'm going to settle for 5mm and hope for the best 🙏.
