@@ -123,3 +123,8 @@ After some time of fiddling with traces, looping them around each other and prob
 Pretty sure now we're done with our PCB, here's a look at the 3D viewer before we move onto the firmware.
 ![3d-front](imgs/3dfront.png)
 ![3d-back](imgs/3dback.png)
+
+Actually let's customize our PCB a little, before moving on.
+
+I didn't wanna write some text on the silkcreen and call it a day, I wanted something *shiny*, so I wrote the text on the copper layer and removed the solder mask covering it, here's the final look
+![with-text](imgs/pcbwithtext.png)

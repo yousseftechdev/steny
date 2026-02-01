@@ -6212,6 +6212,78 @@
 		(layer "Edge.Cuts")
 		(uuid "f67afccb-2b3f-48a2-96e9-bb0388759f2f")
 	)
+	(gr_text "Youssef Tech"
+		(at 36.8 116 0)
+		(layer "F.Cu")
+		(uuid "761c603f-f16d-476a-a4a3-457cd61210a7")
+		(effects
+			(font
+				(size 7 7)
+				(thickness 1)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "Steny"
+		(at 205 116 0)
+		(layer "F.Cu")
+		(uuid "ac210919-5c24-42da-bce4-688ea6d74436")
+		(effects
+			(font
+				(size 7 7)
+				(thickness 1)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text ":P"
+		(at 237.2 107.6 270)
+		(layer "F.Cu")
+		(uuid "c2286412-1605-4321-9967-fbbc406e3243")
+		(effects
+			(font
+				(size 7 7)
+				(thickness 1)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text ":P"
+		(at 237.2 107.6 270)
+		(layer "F.Mask")
+		(uuid "40af30be-3156-4253-a298-a77f0befa964")
+		(effects
+			(font
+				(size 7 7)
+				(thickness 1)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "Youssef Tech"
+		(at 36.8 116 0)
+		(layer "F.Mask")
+		(uuid "a66466ba-937b-4ac4-b605-d88578f9d4df")
+		(effects
+			(font
+				(size 7 7)
+				(thickness 1)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "Steny"
+		(at 205 116 0)
+		(layer "F.Mask")
+		(uuid "f34d8851-dc2a-44c4-8fdb-546294c7853c")
+		(effects
+			(font
+				(size 7 7)
+				(thickness 1)
+			)
+			(justify left bottom)
+		)
+	)
 	(via
 		(at 199.19 135.05)
 		(size 0.6)
