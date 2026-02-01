@@ -73,7 +73,7 @@ If you're wondering why the PCB in the 3D view looks so weird, it's because I ch
 
 The pad design is finished, now we can get working on the keyboard itself.
 
-This is the standard layout of a steno keyboard:
+This is the standard layout of a steno keyboard:<br>
 ![standard-layout](imgs/stdlayout.png)
 
 Let's start on that schematic, first we get all the components we need, I'm going off the YASK layout here, where the number button or # buttons are the red buttons between AO and EU, and the asterisk keys will be two long pads on both sides of the Pi Pico, so we'll need 22 small pads, and 3 long pads.
