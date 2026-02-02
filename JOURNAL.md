@@ -128,3 +128,89 @@ Actually let's customize our PCB a little, before moving on.
 
 I didn't wanna write some text on the silkcreen and call it a day, I wanted something *shiny*, so I wrote the text on the copper layer and removed the solder mask covering it, here's the final look
 ![with-text](imgs/pcbwithtext.png)
+
+### 4. Firmware
+
+I was wondering how I can write firmware for a device that doesn't yet exist, but I had an idea.
+
+I already have a Raspberry Pi Pico, so why not just DIY something for now?
+
+Components I'll be using to test firmware:
+- Raspberry Pi Pico
+- Breadboard
+- Jumper wires
+- A coin sized circle of aluminum foil
+
+The foil will act as a touch pad for now. Here's my setup:
+![foil-test](imgs/irltest.png)
+
+I'll write some simple micropython script just to test if this whole touch thing would actually work or if I just wasted 12+ hours of my life (I should've done the test WAAAYY earlier).
+
+Here's the first code tested can be found in [firmware/foiltest.py](firmware/foiltest.py):
+```py
+from machine import Pin
+import time
+touch_pin = Pin(0, Pin.IN)
+led = Pin(25, Pin.OUT)
+def read_touch(pin):
+    # Charge the pad
+    pin.init(Pin.OUT)
+    pin.value(1)
+    time.sleep_us(10)
+    # Switch to input and time discharge
+    pin.init(Pin.IN)
+    t = 0
+    while pin.value() == 1 and t < 1000:
+        t += 1
+    return t
+while True:
+    val = read_touch(touch_pin)
+    if val < 35:
+        led.value(1)
+    else:
+        led.value(0)
+    time.sleep(0.08)
+```
+
+The code charges the foil pad and measures how much time it takes to discharge, I tweaked the threshold to trigger when my finger is placed on the pad and it worked about 90% of the time, it's less reliable than I'd liked, but I've come this far, I can surely make more tweaks to improve it later.
+
+To see if it would work with multiple key's, I made the shown layout:
+![tri-pad-test](imgs/tritouchpad.png)
+
+Here's the code, it's in [firmware/tripadtest.py](firmware/tripadtest.py) too:
+```py
+from machine import Pin
+import time
+touch_pin1 = Pin(0, Pin.IN)
+touch_pin2 = Pin(1, Pin.IN)
+touch_pin3 = Pin(2, Pin.IN)
+led = Pin(25, Pin.OUT)
+def read_touch(pin):
+    # Charge the pad
+    pin.init(Pin.OUT)
+    pin.value(1)
+    time.sleep_us(10)
+    # Switch to input and time discharge
+    pin.init(Pin.IN)
+    t = 0
+    while pin.value() == 1 and t < 1000:
+        t += 1
+    return t
+while True:
+    val1 = read_touch(touch_pin1)
+    val2 = read_touch(touch_pin2)
+    val3 = read_touch(touch_pin3)
+    if val1 < 35:
+        led.value(1)
+    elif val2 < 35:
+        led.value(1)
+    elif val3 < 35:
+        led.value(1)
+    else:
+        led.value(0)
+    time.sleep(0.08)
+```
+
+Now sensitivity is horrendous, barely registers anything, I've done some tests and it seems like running the `read_touch()` on multiple pins messes with the readings.
+
+I have some possible fixes in mind but it's like 2:20 AM and I'm already tired from the researching and designing the PCB 😓, so good night and see you next commit ✨!
